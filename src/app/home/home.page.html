@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      BAR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content >
+
+  <ion-list class="ios list-ios hydrated">
+    <ion-card *ngFor="let producto of Producto" class="item-label item ios in-list ion-focusable hydrated">
+      <ion-card-header>
+          <ion-card-title>{{producto.nombre}}</ion-card-title>
+          <br>
+          <ion-card-subtitle>$ {{producto.precio}}</ion-card-subtitle>
+          <ion-card-subtitle>Unidades: {{producto.cantidad}}</ion-card-subtitle>
+      
+
+        <ion-button size="small" color="primary" [routerLink]="['/editar-producto/', producto._id]">
+          <ion-icon color="light" name="color-wand-outline" style="zoom:2.0"></ion-icon>
+        </ion-button>
+
+        <ion-button size="small" color="danger" (click)="deleteProducto(producto, i)">
+          <ion-icon color="light" name="close-circle-outline" style="zoom:2.0"></ion-icon>
+        </ion-button>
+
+      </ion-card-header>
+
+
+    </ion-card>
+  </ion-list>
+
+  <!-- fab placed to the bottom start -->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="dark">
+      <ion-icon name="chevron-up-outline"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+
+        <ion-fab-button size="small" color="primary"  routerLink="/crear-producto">
+          <ion-icon color="light" name="add-outline"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-button size="small" color="primary"  routerLink="/contacto">
+          <ion-icon color="light" name="people-outline"></ion-icon>
+        </ion-fab-button>
+
+
+    </ion-fab-list>
+  </ion-fab>
+  
+</ion-content>
+
+
